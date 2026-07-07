@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карим &amp; Алия — Свадебное приглашение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,500&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF8F5;
+    --ivory-2:#F2EFE9;
+    --navy:#1C2331;
+    --slate:#4A5C6E;
+    --gold:#C39B62;
+    --line:rgba(30,42,68,0.08);
+    --shadow: 0 10px 25px rgba(30,42,68,0.06);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:#ECE8E1;
+    color:var(--navy);
+    font-family:"PT Serif", serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  .page{
+    max-width:480px;
+    margin:0 auto;
+    position:relative;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(195,155,98,0.05), transparent 40%),
+      radial-gradient(circle at 90% 100%, rgba(74,92,110,0.05), transparent 45%),
+      var(--ivory);
+    min-height:100vh;
+    box-shadow:0 0 60px rgba(30,42,68,0.12);
+  }
+
+  section{
+    position:relative;
+    padding:32px 20px;
+    overflow:hidden;
+  }
+
+  .script{
+    font-family:"Marck Script", cursive;
+    color:var(--slate);
+    font-weight:400;
+    line-height:1.15;
+  }
+
+  h1.script{ font-size:3.2rem; margin:0 0 5px; text-align:center; }
+  h2.script{ font-size:2.4rem; margin:0 0 14px; text-align:center;}
+
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:0.7rem;
+    color:var(--gold);
+    font-family:"PT Serif", serif;
+    text-align:center;
+    margin-bottom:10px;
+  }
+
+  p.lede{
+    font-family:"Playfair Display", serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.02rem;
+    line-height:1.55;
+    color:var(--navy);
+    text-align:center;
+    margin:0 auto 10px;
+    max-width:380px;
+  }
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(15px);
+    transition:opacity 0.7s cubic-bezier(.22,.9,.32,1), transform 0.7s cubic-bezier(.22,.9,.32,1);
+  }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+  .reveal-delay-1.visible{ transition-delay:0.1s; }
+  .reveal-delay-2.visible{ transition-delay:0.2s; }
+
+  /* ---------- silk ribbon divider ---------- */
+  .silk{
+    width:100%;
+    height:45px;
+    display:block;
+    margin:0;
+    padding:0;
+  }
+  .silk path{
+    animation:drift 10s ease-in-out infinite alternate;
+    transform-origin:center;
+  }
+  @keyframes drift{
+    0%{ transform:translateX(-0.5%) translateY(0); }
+    100%{ transform:translateX(0.5%) translateY(1px); }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    text-align:center;
+    padding:50px 20px 30px;
+    isolation:isolate;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    background-image:url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1200&q=60');
+    background-size:cover;
+    background-position:center;
+    opacity:0.12;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:
+      radial-gradient(circle at 85% 8%, rgba(195,155,98,0.08), transparent 45%),
+      linear-gradient(180deg, rgba(250,248,245,0.3) 0%, rgba(250,248,245,0.7) 65%, var(--ivory) 100%);
+  }
+  .amp{ display:block; font-family:"Playfair Display",serif; font-style:italic; color:var(--gold); font-size:1.6rem; margin:2px 0; }
+
+  /* ---------- CALENDAR STEP ---------- */
+  .cal-wrap{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 18px;
+    max-width:280px;
+    margin:20px auto 5px;
+    box-shadow:var(--shadow);
+  }
+  .cal-month{
+    font-family:"Playfair Display", serif;
+    font-size:1.05rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-bottom:10px;
+    font-weight:600;
+  }
+  .cal-grid{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:6px 4px;
+    font-size:0.82rem;
+  }
+  .cal-head{ font-weight:600; color:var(--gold); font-size:0.75rem; padding-bottom:2px;}
+  .cal-day{ color:var(--navy); padding:4px 0; position:relative; z-index:1;}
+  .cal-day.heart{
+    font-weight:700;
+    color:#fff;
+  }
+  .cal-day.heart::before{
+    content:"❤";
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%) scale(1.6);
+    color:#D96B6B;
+    z-index:-1;
+  }
+
+  /* ---------- photo section background ---------- */
+  .photo-section{
+    position:relative;
+    isolation:isolate;
+    background:var(--ivory-2);
+  }
+  .photo-section::before{
+    content:"";
+    position:absolute; inset:0;
+    z-index:-2;
+    background-image:var(--bg-photo);
+    background-size:cover;
+    background-position:center;
+    filter:blur(2px) saturate(0.6);
+    opacity:0.1;
+  }
+  .photo-section::after{
+    content:"";
+    position:absolute; inset:0;
+    z-index:-1;
+    background:linear-gradient(180deg, rgba(242,239,233,0.85), rgba(242,239,233,0.95));
+  }
+
+  /* ---------- photo gallery ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:5px;
+  }
+  .photo-frame{
+    position:relative;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    background:var(--ivory-2);
+  }
+  .photo-frame.photo-wide{ grid-column:1 / -1; aspect-ratio:16/9; }
+  .photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 0.5s ease;
+  }
+  .photo-frame:hover img{ transform:scale(1.03); }
+
+  /* ---------- rings divider ---------- */
+  .rings-divider{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:16px 0;
+  }
+  .ring{
+    width:20px;height:20px;border-radius:50%;
+    border:1.8px solid var(--gold);
+  }
+  .rings-divider .line{ width:50px; height:1px; background:var(--line); }
+
+  /* ---------- countdown ---------- */
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:12px;
+  }
+  .cd-item{
+    width:70px; height:70px;
+    border:1px solid rgba(62,92,110,0.2);
+    background: #fff;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 4px 8px rgba(30,42,68,0.03);
+  }
+  .cd-item .num{ font-family:"Playfair Display", serif; font-size:1.3rem; color:var(--navy); font-weight:600;}
+  .cd-item .lbl{ font-size:0.55rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--slate); margin-top:1px;}
+
+  /* ---------- ИНТЕРАКТИВНЫЙ ТАЙМЛАЙН С АНИМИРОВАННЫМ СЕРДЦЕМ ---------- */
+  .scroll-timeline-container {
+    position: relative;
+    max-width: 420px;
+    margin: 30px auto 10px;
+    height: 380px;
+  }
+  
+  .timeline-svg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .timeline-svg-wrapper svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .main-wave-path {
+    fill: none;
+    stroke: rgba(195,155,98,0.3);
+    stroke-width: 2;
+  }
+
+  #movingHeart {
+    fill: var(--gold);
+    transform-origin: center;
+    filter: drop-shadow(0 2px 4px rgba(195,155,98,0.4));
+  }
+
+  .timeline-row-item {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateY(-50%);
+  }
+
+  .time-left {
+    width: 42%;
+    text-align: right;
+    padding-right: 25px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.25rem;
+    color: var(--slate);
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .spacer-center {
+    width: 16%;
+  }
+
+  .desc-right {
+    width: 42%;
+    text-align: left;
+    padding-left: 25px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* ---------- dress code ---------- */
+  .dress-cols{
+    display:flex;
+    justify-content:space-around;
+    gap:14px;
+    margin-top:16px;
+  }
+  .dress-col{ 
+    text-align:center; 
+    background:#fff; 
+    padding:16px 10px; 
+    border-radius:12px; 
+    border:1px solid var(--line);
+    box-shadow: var(--shadow);
+    flex: 1;
+  }
+  .dress-col h3{
+    font-family:"PT Serif", serif;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin:0 0 12px;
+  }
+  .swatches{ display:flex; gap:8px; justify-content:center; }
+  .sw{ width:30px; height:30px; border-radius:50%; box-shadow:0 3px 6px rgba(30,42,68,0.1); border:2px solid #fff; }
+
+  /* ---------- location ---------- */
+  .venue-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:26px 20px;
+    text-align:center;
+    margin-top:5px;
+  }
+  .venue-card .vname{
+    font-family:"Playfair Display", serif;
+    font-style:italic;
+    font-size:1.7rem;
+    color:var(--navy);
+    margin:6px 0;
+    letter-spacing:0.02em;
+  }
+  .map-link{
+    display:inline-block;
+    margin-top:16px;
+    padding:11px 28px;
+    background: var(--navy);
+    color:#fff;
+    text-decoration:none;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border-radius:22px;
+    box-shadow: 0 5px 12px rgba(30,42,68,0.12);
+    transition:background 0.3s, transform 0.2s;
+  }
+  .map-link:hover{ background:var(--slate); transform:translateY(-1px); }
+  .venue-addr{ margin-top:12px; font-style:italic; color:var(--navy); font-size:0.92rem; }
+
+  /* ---------- rsvp form ---------- */
+  .form-wrap{ max-width:360px; margin:5px auto 0; }
+  label.field-label{
+    display:block;
+    font-size:0.8rem;
+    letter-spacing:0.04em;
+    color:var(--slate);
+    margin:14px 0 5px;
+  }
+  input[type="text"], select{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:8px;
+    font-family:"PT Serif", serif;
+    font-size:0.92rem;
+    color:var(--navy);
+    outline:none;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.01);
+    transition:border-color 0.3s;
+  }
+  input[type="text"]:focus, select:focus{ border-color:var(--slate); }
+  
+  .radio-group {
+    margin: 8px 0 14px;
+  }
+  .radio-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:8px 0;
+    font-size:0.92rem;
+    cursor:pointer;
+  }
+
+  .submit-btn{
+    width:100%;
+    margin-top:16px;
+    padding:14px;
+    background: linear-gradient(135deg, var(--slate), var(--navy));
+    color:#fff;
+    border:none;
+    border-radius:24px;
+    font-family:"PT Serif", serif;
+    font-size:0.92rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow:0 8px 18px rgba(30,42,68,0.12);
+  }
+  .submit-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 24px rgba(30,42,68,0.18); }
+  .submit-btn:active{ transform:translateY(0); }
+
+  .thanks{
+    display:none;
+    text-align:center;
+    margin-top:14px;
+    font-family:"Playfair Display", serif;
+    font-style:italic;
+    color:var(--gold);
+    font-size:1.05rem;
+  }
+  .thanks.show{ display:block; animation:fadeIn 0.6s ease forwards; }
+
+  /* ---------- telegram ---------- */
+  .tg-circle{
+    width:60px;height:60px;
+    border-radius:50%;
+    border:1.5px solid var(--slate);
+    background: #fff;
+    box-shadow: var(--shadow);
+    display:flex;align-items:center;justify-content:center;
+    margin:20px auto 0;
+    text-decoration:none;
+    transition:background 0.3s, transform 0.2s;
+  }
+  .tg-circle:hover{ background:var(--ivory-2); transform: scale(1.04); }
+  .tg-circle svg{ width:24px; height:24px; }
+
+  /* ---------- footer ---------- */
+  footer{
+    text-align:center;
+    padding:32px 20px 48px;
+  }
+  footer .script{ font-size:2.6rem; margin-top:6px; }
+  .footer-line{ font-size:0.8rem; letter-spacing:0.06em; color:var(--slate); text-transform:uppercase; }
+
+  /* floating peony */
+  .peony{
+    position:absolute;
+    pointer-events:none;
+    opacity:0.85;
+  }
+  .float{ animation:floaty 6s ease-in-out infinite; }
+  @keyframes floaty{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-6px) rotate(2deg); }
+  }
+
+  /* ---------- МУЗЫКАЛЬНЫЙ ПЛЕЕР (КНОПКА И ПОДСКАЗКА) ---------- */
+  .music-player-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .music-tooltip {
+    background: rgba(28, 35, 49, 0.9);
+    color: #fff;
+    font-size: 0.78rem;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin-right: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: "PT Serif", serif;
+    white-space: nowrap;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: auto;
+  }
+  
+  .music-tooltip.hide {
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none;
+  }
+
+  .music-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--ivory);
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 6px 16px rgba(30,42,68,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.2s, background-color 0.3s;
+    position: relative;
+    -webkit-tap-highlight-color: transparent; /* Убирает синюю вспышку на смартфонах */
+  }
+
+  .music-btn:hover {
+    transform: scale(1.05);
+    background: var(--ivory-2);
+  }
+
+  .music-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--navy);
+    transition: fill 0.3s;
+  }
+
+  .music-btn.pulsing::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    animation: pulseActive 2s infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes pulseActive {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  .icon-pause { display: none; }
+  .playing .icon-play { display: none; }
+  .playing .icon-pause { display: block; }
+  .playing .music-btn { border-color: var(--slate); }
+  .playing .music-btn::after { display: none; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <audio id="bgMusic" src="musicc.mp3" loop preload="auto"></audio>
+
+  <div class="music-player-container" id="musicContainer">
+    <div class="music-tooltip" id="musicTooltip">Нажмите, чтобы включить музыку</div>
+    <button class="music-btn pulsing" id="musicToggle" aria-label="Включить музыку">
+      <svg class="icon-play" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg class="icon-pause" viewBox="0 0 24 24">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+  </div>
+
+  <section class="hero" id="hero">
+    <svg class="peony float" style="top:12px; right:-15px; width:90px;" viewBox="0 0 100 100">
+      <g fill="none" stroke="#C9A66B" stroke-width="1.4">
+        <circle cx="50" cy="42" r="14" fill="#FBF8F2" stroke="#D9C39B"/>
+        <circle cx="38" cy="34" r="12" fill="#FEFCF8" stroke="#D9C39B"/>
+        <circle cx="62" cy="34" r="12" fill="#FEFCF8" stroke="#D9C39B"/>
+        <circle cx="38" cy="52" r="12" fill="#FEFCF8" stroke="#D9C39B"/>
+        <circle cx="62" cy="52" r="12" fill="#FEFCF8" stroke="#D9C39B"/>
+        <circle cx="50" cy="44" r="7" fill="#F1E3C6" stroke="#C9A66B"/>
+        <path d="M50 58 Q46 78 40 92" stroke="#7C8F6E" stroke-width="2"/>
+        <path d="M50 66 Q58 72 66 70" stroke="#7C8F6E" stroke-width="2"/>
+      </g>
+    </svg>
+
+    <p class="eyebrow reveal visible">Приглашение на свадьбу</p>
+    <h1 class="script">Карим<span class="amp">&amp;</span>Алия</h1>
+
+    <div class="cal-wrap reveal reveal-delay-1">
+      <div class="cal-month">Июль 2026</div>
+      <div class="cal-grid">
+        <div class="cal-head">Пн</div><div class="cal-head">Вт</div><div class="cal-head">Ср</div><div class="cal-head">Чт</div><div class="cal-head">Пт</div><div class="cal-head">Сб</div><div class="cal-head">Вс</div>
+        <div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day heart">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 100,5 180,55 240,30 C 300,5 380,55 480,25 L480,60 L0,60 Z" fill="#F2EFE9"/>
+  </svg>
+
+  <section id="intro" style="background:var(--ivory-2); padding-top:10px; padding-bottom:10px;">
+    <p class="lede reveal">С огромной радостью приглашаем вас на самое яркое событие в нашей жизни – свадьбу!</p>
+    <p class="lede reveal reveal-delay-1">Мы будем счастливы отметить этот день в кругу родных и близких нам людей. С нетерпением ждем вас.</p>
+
+    <div class="rings-divider reveal reveal-delay-2">
+      <span class="line"></span>
+      <span class="ring"></span>
+      <span class="ring" style="margin-left:-10px;"></span>
+      <span class="line"></span>
+    </div>
+
+    <p class="eyebrow reveal">До торжества осталось</p>
+    <div class="countdown reveal reveal-delay-1" id="countdown">
+      <div class="cd-item"><span class="num" id="cd-days">--</span><span class="lbl">дней</span></div>
+      <div class="cd-item"><span class="num" id="cd-hours">--</span><span class="lbl">часов</span></div>
+      <div class="cd-item"><span class="num" id="cd-min">--</span><span class="lbl">минут</span></div>
+      <div class="cd-item"><span class="num" id="cd-sec">--</span><span class="lbl">секунд</span></div>
+    </div>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 90,10 190,50 260,30 C 330,5 400,45 480,30 L480,0 L0,0 Z" fill="#F2EFE9"/>
+  </svg>
+
+  <section id="photos" style="padding-top:10px; padding-bottom:15px;">
+    <div class="gallery reveal reveal-delay-1">
+      <div class="photo-frame photo-wide">
+        <img src="https://avatars.mds.yandex.net/i?id=7780c42808c6bc40063fa129620153771cfc6f7b-5305635-images-thumbs&n=13" loading="lazy">
+      </div>
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=80" alt="Свадебные детали" loading="lazy">
+      </div>
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1549576351-2b0829ac81f8?auto=format&fit=crop&w=800&q=80" alt="Белые пионы" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 100,5 180,55 240,30 C 300,5 380,55 480,25 L480,60 L0,60 Z" fill="#F2EFE9"/>
+  </svg>
+
+  <section id="schedule" style="background:var(--ivory-2); padding-top:15px; padding-bottom:20px;">
+    <h2 class="script reveal">Программа дня</h2>
+    
+    <div class="scroll-timeline-container" id="timelineContainer">
+      
+      <div class="timeline-svg-wrapper">
+        <svg viewBox="0 0 420 380" preserveAspectRatio="none">
+          <path id="wavePath" class="main-wave-path" d="M210,15 Q235,60 210,105 T210,195 T210,285 T210,365" />
+          
+          <g id="movingHeart">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" transform="translate(-12, -12) scale(1.1)" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="timeline-row-item" style="top: 15px;">
+        <div class="time-left">15:00</div>
+        <div class="spacer-center"></div>
+        <div class="desc-right">Сбор гостей</div>
+      </div>
+
+      <div class="timeline-row-item" style="top: 105px;">
+        <div class="time-left">16:00</div>
+        <div class="spacer-center"></div>
+        <div class="desc-right">Выездная церемония</div>
+      </div>
+
+      <div class="timeline-row-item" style="top: 195px;">
+        <div class="time-left">17:00</div>
+        <div class="spacer-center"></div>
+        <div class="desc-right">Начало торжества</div>
+      </div>
+
+      <div class="timeline-row-item" style="top: 285px;">
+        <div class="time-left">23:00</div>
+        <div class="spacer-center"></div>
+        <div class="desc-right">Окончание вечера</div>
+      </div>
+
+    </div>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 100,5 180,55 240,30 C 300,5 380,55 480,25 L480,0 L0,0 Z" fill="#F2EFE9"/>
+  </svg>
+
+  <section id="dress" style="padding-top:15px; padding-bottom:15px;">
+    <h2 class="script reveal">Дресс-код</h2>
+    <p class="lede reveal reveal-delay-1">Будем благодарны, если вы поддержите цветовую гамму нашего праздника.</p>
+    <div class="dress-cols reveal reveal-delay-2">
+      <div class="dress-col">
+        <h3>Для дам</h3>
+        <div class="swatches">
+          <div class="sw" style="background:#9FCDE8;"></div>
+          <div class="sw" style="background:#1B2E52;"></div>
+          <div class="sw" style="background:#A9743C;"></div>
+        </div>
+      </div>
+      <div class="dress-col">
+        <h3>Для кавалеров</h3>
+        <div class="swatches">
+          <div class="sw" style="background:#14161A;"></div>
+          <div class="sw" style="background:#22355C;"></div>
+          <div class="sw" style="background:#A9743C;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 90,10 190,50 260,30 C 330,5 400,45 480,30 L480,0 L0,0 Z" fill="#F2EFE9"/>
+  </svg>
+
+  <section id="venue" class="photo-section" style="--bg-photo:url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1200&q=60'); padding-top:15px; padding-bottom:20px;">
+    <h2 class="script reveal">Место проведения</h2>
+    <div class="venue-card reveal reveal-delay-1">
+      <div class="vname">Ресторан “Aurora”</div>
+      <div class="venue-addr">г. Бишкек, ул. Ибраимова, 2/2</div>
+      <a class="map-link" href="https://2gis.kg/bishkek/search/Ибраимов%202/2" target="_blank" rel="noopener">Открыть карту 2GIS</a>
+    </div>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 100,5 180,55 240,30 C 300,5 380,55 480,25 L480,60 L0,60 Z" fill="#FAF8F5"/>
+  </svg>
+
+  <section id="telegram" style="padding-top:10px; padding-bottom:15px; text-align:center;">
+    <h2 class="script reveal">Telegram группа</h2>
+    <p class="lede reveal reveal-delay-1">Вы сможете отправлять и смотреть все фото и видео с нашего торжества в Telegram-канале по ссылке ниже.</p>
+    <a class="tg-circle reveal reveal-delay-2" href="https://t.me/+zjT9PHBOqO1jYmJi" target="_blank" rel="noopener" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3E5C86" stroke-width="1.6"><path d="M22 3 3 10.5l6 2.2M22 3 15.8 21l-5-8.4M22 3 8.4 12.6"/></svg>
+    </a>
+  </section>
+
+  <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
+    <path d="M0,30 C 90,10 190,50 260,30 C 330,5 400,45 480,30 L480,0 L0,0 Z" fill="#F2EFE9"/>
+  </svg>
+
+  <section id="rsvp" style="background:var(--ivory-2); padding-top:15px; padding-bottom:20px;">
+    <h2 class="script reveal">Анкета гостя</h2>
+    <p class="lede reveal reveal-delay-1">Пожалуйста, подтвердите ваше присутствие, чтобы мы могли лучше подготовиться к встрече.</p>
+
+    <div class="form-wrap reveal reveal-delay-2">
+      <form id="rsvpForm">
+        <label class="field-label">Ваше имя и фамилия</label>
+        <input type="text" id="guestName" placeholder="Введите ваше имя" required>
+
+        <label class="field-label">Смонете ли вы прийти?</label>
+        <div class="radio-group">
+          <label class="radio-row">
+            <input type="radio" name="attend" value="Да, с удовольствием" checked> 
+            <span>Да, с удовольствием</span>
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="attend" value="К сожалению, не смогу"> 
+            <span>К сожалению, не смогу</span>
+          </label>
+        </div>
+
+        <div id="countBlock">
+          <label class="field-label">Количество гостей</label>
+          <select id="guestCount">
+            <option>1 человек</option>
+            <option>2 человека</option>
+            <option>3 человека</option>
+            <option>4 человека</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">отправить в whatsapp</button>
+      </form>
+      <p class="thanks" id="thanksMsg">Спасибо! Открываем WhatsApp для отправки... 🤍</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-line reveal">С уважением и любовью</div>
+    <div class="script reveal reveal-delay-1">Карим &amp; Алия</div>
+  </footer>
+
+</div>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el=>io.observe(el));
+
+  // countdown to wedding start
+  const target = new Date('2026-07-09T17:00:00+06:00').getTime();
+  function tick(){
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-sec').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Скрытие количества гостей
+  const radioInputs = document.querySelectorAll('input[name="attend"]');
+  const countBlock = document.getElementById('countBlock');
+  radioInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      if (this.value === 'К сожалению, не смогу') {
+        countBlock.style.display = 'none';
+      } else {
+        countBlock.style.display = 'block';
+      }
+    });
+  });
+
+  // Отправка формы в WhatsApp
+  document.getElementById('rsvpForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('guestName').value;
+    const attendance = document.querySelector('input[name="attend"]:checked').value;
+    const count = document.getElementById('guestCount').value;
+    
+    let message = `Здравствуйте! Ответ на приглашение от Карима и Алии:\n\n`;
+    message += `👤 Имя: ${name}\n`;
+    message += `💌 Решение: ${attendance}`;
+    
+    if (attendance === 'Да, с удовольствием') {
+      message += `\n👥 Количество: ${count}`;
+    }
+    
+    const phone = '996559150809';
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    document.getElementById('thanksMsg').classList.add('show');
+    
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+    }, 1000);
+  });
+
+  // ЛОГИКА СКОЛЬЖЕНИЯ СЕРДЦА ПО ЛИНИИ ПРИ СКРОЛЛЕ
+  const wavePath = document.getElementById('wavePath');
+  const movingHeart = document.getElementById('movingHeart');
+  const scheduleSection = document.getElementById('schedule');
+  const pathLength = wavePath.getTotalLength();
+
+  function animateHeartOnScroll() {
+    const rect = scheduleSection.getBoundingClientRect();
+    const viewHeight = window.innerHeight;
+
+    let scrollPercent = (window.innerHeight - rect.top) / (rect.height + window.innerHeight);
+    if (scrollPercent < 0) scrollPercent = 0;
+    if (scrollPercent > 1) scrollPercent = 1;
+
+    const currentLength = scrollPercent * pathLength;
+    const point = wavePath.getPointAtLength(currentLength);
+
+    movingHeart.setAttribute('transform', `translate(${point.x}, ${point.y})`);
+  }
+
+  window.addEventListener('scroll', animateHeartOnScroll);
+  window.addEventListener('resize', animateHeartOnScroll);
+  setTimeout(animateHeartOnScroll, 100);
+
+  // ЛОГИКА РАБОТЫ МУЗЫКАЛЬНОГО ПЛЕЕРА И АВТООСТАНОВКИ
+  const bgMusic = document.getElementById('bgMusic');
+  const musicContainer = document.getElementById('musicContainer');
+  const musicToggle = document.getElementById('musicToggle');
+  const musicTooltip = document.getElementById('musicTooltip');
+  
+  // Флаг, отслеживающий, включил ли пользователь музыку вручную
+  let isMusicPlayingByUser = false;
+
+  function toggleMusic() {
+    musicTooltip.classList.add('hide');
+    musicToggle.classList.remove('pulsing');
+
+    if (bgMusic.paused) {
+      bgMusic.play()
+        .then(() => {
+          musicContainer.classList.add('playing');
+          isMusicPlayingByUser = true;
+        })
+        .catch(err => {
+          console.log("Браузер заблокировал старт. Нужен клик пользователя.");
+        });
+    } else {
+      bgMusic.pause();
+      musicContainer.classList.remove('playing');
+      isMusicPlayingByUser = false;
+    }
+  }
+
+  musicToggle.addEventListener('click', toggleMusic);
+
+  // Автоматическое скрытие подсказки через 7 секунд
+  setTimeout(() => {
+    musicTooltip.classList.add('hide');
+  }, 7000);
+
+  // СЛУШАТЕЛЬ ДЛЯ ОСТАНОВКИ МУЗЫКИ ПРИ ВЫХОДЕ/СВЕРТЫВАНИИ СТРАНИЦЫ
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      // Если страница скрылась (свернули браузер, вышли из вкладки, заблокировали экран телефона)
+      if (!bgMusic.paused) {
+        bgMusic.pause();
+        musicContainer.classList.remove('playing');
+      }
+    } else {
+      // Если вернулись на страницу, и до этого музыка играла — запускаем её снова обратно
+      if (isMusicPlayingByUser && bgMusic.paused) {
+        bgMusic.play().then(() => {
+          musicContainer.classList.add('playing');
+        }).catch(e => console.log(e));
+      }
+    }
+  });
+</script>
+</body>
+</html>
