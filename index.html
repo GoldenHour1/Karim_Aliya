@@ -6,7 +6,6 @@
 <title>Карим &amp; Алия — Свадебное приглашение</title>
 
 <!-- Primary Meta Tags -->
-<title>Карим & Алия — Свадебное приглашение</title>
 <meta name="title" content="Карим & Алия — Свадебное приглашение" />
 <meta name="description" content="Приглашаем вас разделить с нами этот особенный день! 9 Июля 2026." />
 
@@ -23,7 +22,6 @@
 <meta property="twitter:title" content="Карим & Алия — Свадебное приглашение" />
 <meta property="twitter:description" content="Приглашаем вас разделить с нами этот особенный день! 9 Июля 2026." />
 <meta property="twitter:image" content="https://goldenhour1.github.io/Karim_Aliya/image.jpg" />
-
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,6 +58,39 @@
       var(--ivory);
     min-height:100vh;
     box-shadow:0 0 60px rgba(30,42,68,0.12);
+  }
+
+  /* КНОПКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА */
+  .lang-switcher-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+  }
+  .lang-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--gold);
+    color: var(--navy);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: "PT Serif", serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30,42,68,0.08);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .lang-btn:hover {
+    background: var(--ivory-2);
+    transform: translateY(-1px);
+  }
+  .lang-btn .active-lang {
+    color: var(--gold);
   }
 
   section{
@@ -100,7 +131,7 @@
     max-width:380px;
   }
 
-  /* ---------- reveal-on-scroll ---------- */
+  /* reveal-on-scroll */
   .reveal{
     opacity:0;
     transform:translateY(15px);
@@ -110,7 +141,7 @@
   .reveal-delay-1.visible{ transition-delay:0.1s; }
   .reveal-delay-2.visible{ transition-delay:0.2s; }
 
-  /* ---------- silk ribbon divider ---------- */
+  /* silk ribbon divider */
   .silk{
     width:100%;
     height:45px;
@@ -127,11 +158,11 @@
     100%{ transform:translateX(0.5%) translateY(1px); }
   }
 
-  /* ---------- HERO ---------- */
+  /* HERO */
   .hero{
     position:relative;
     text-align:center;
-    padding:50px 20px 30px;
+    padding:60px 20px 30px;
     isolation:isolate;
   }
   .hero::before{
@@ -155,7 +186,7 @@
   }
   .amp{ display:block; font-family:"Playfair Display",serif; font-style:italic; color:var(--gold); font-size:1.6rem; margin:2px 0; }
 
-  /* ---------- CALENDAR STEP ---------- */
+  /* CALENDAR STEP */
   .cal-wrap{
     background:#fff;
     border:1px solid var(--line);
@@ -195,7 +226,7 @@
     z-index:-1;
   }
 
-  /* ---------- photo section background ---------- */
+  /* photo section background */
   .photo-section{
     position:relative;
     isolation:isolate;
@@ -218,7 +249,7 @@
     background:linear-gradient(180deg, rgba(242,239,233,0.85), rgba(242,239,233,0.95));
   }
 
-  /* ---------- photo gallery ---------- */
+  /* photo gallery */
   .gallery{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -242,7 +273,7 @@
   }
   .photo-frame:hover img{ transform:scale(1.03); }
 
-  /* ---------- rings divider ---------- */
+  /* rings divider */
   .rings-divider{
     display:flex;
     justify-content:center;
@@ -256,7 +287,7 @@
   }
   .rings-divider .line{ width:50px; height:1px; background:var(--line); }
 
-  /* ---------- countdown ---------- */
+  /* countdown */
   .countdown{
     display:flex;
     justify-content:center;
@@ -277,7 +308,7 @@
   .cd-item .num{ font-family:"Playfair Display", serif; font-size:1.3rem; color:var(--navy); font-weight:600;}
   .cd-item .lbl{ font-size:0.55rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--slate); margin-top:1px;}
 
-  /* ---------- ИНТЕРАКТИВНЫЙ ТАЙМЛАЙН С АНИМИРОВАННЫМ СЕРДЦЕМ ---------- */
+  /* ИНТЕРАКТИВНЫЙ ТАЙМЛАЙН */
   .scroll-timeline-container {
     position: relative;
     max-width: 420px;
@@ -347,10 +378,10 @@
     line-height: 1.3;
   }
 
-  /* ---------- dress code ---------- */
+  /* dress code */
   .dress-cols{
     display:flex;
-    justify-content:space-around;
+    justify-style:space-around;
     gap:14px;
     margin-top:16px;
   }
@@ -374,7 +405,7 @@
   .swatches{ display:flex; gap:8px; justify-content:center; }
   .sw{ width:30px; height:30px; border-radius:50%; box-shadow:0 3px 6px rgba(30,42,68,0.1); border:2px solid #fff; }
 
-  /* ---------- location ---------- */
+  /* location */
   .venue-card{
     background:#fff;
     border:1px solid var(--line);
@@ -409,7 +440,7 @@
   .map-link:hover{ background:var(--slate); transform:translateY(-1px); }
   .venue-addr{ margin-top:12px; font-style:italic; color:var(--navy); font-size:0.92rem; }
 
-  /* ---------- rsvp form ---------- */
+  /* rsvp form */
   .form-wrap{ max-width:360px; margin:5px auto 0; }
   label.field-label{
     display:block;
@@ -418,7 +449,7 @@
     color:var(--slate);
     margin:14px 0 5px;
   }
-  input[type="text"], select{
+  input[type="text"]{
     width:100%;
     padding:12px 14px;
     border:1px solid var(--line);
@@ -431,11 +462,9 @@
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.01);
     transition:border-color 0.3s;
   }
-  input[type="text"]:focus, select:focus{ border-color:var(--slate); }
+  input[type="text"]:focus{ border-color:var(--slate); }
   
-  .radio-group {
-    margin: 8px 0 14px;
-  }
+  .radio-group { margin: 8px 0 14px; }
   .radio-row{
     display:flex;
     align-items:center;
@@ -475,7 +504,7 @@
   }
   .thanks.show{ display:block; animation:fadeIn 0.6s ease forwards; }
 
-  /* ---------- telegram ---------- */
+  /* telegram */
   .tg-circle{
     width:60px;height:60px;
     border-radius:50%;
@@ -490,7 +519,7 @@
   .tg-circle:hover{ background:var(--ivory-2); transform: scale(1.04); }
   .tg-circle svg{ width:24px; height:24px; }
 
-  /* ---------- footer ---------- */
+  /* footer */
   footer{
     text-align:center;
     padding:32px 20px 48px;
@@ -510,7 +539,7 @@
     50%{ transform:translateY(-6px) rotate(2deg); }
   }
 
-  /* ---------- МУЗЫКАЛЬНЫЙ ПЛЕЕР (КНОПКА И ПОДСКАЗКА) ---------- */
+  /* МУЗЫКАЛЬНЫЙ ПЛЕЕР */
   .music-player-container {
     position: fixed;
     bottom: 24px;
@@ -597,10 +626,17 @@
 <body>
 <div class="page">
 
+  <!-- Кнопка выбора языка -->
+  <div class="lang-switcher-container">
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">
+      <span id="langRU" class="active-lang">RU</span> / <span id="langKG">KG</span>
+    </button>
+  </div>
+
   <audio id="bgMusic" src="musicc.mp3" loop preload="auto"></audio>
 
   <div class="music-player-container" id="musicContainer">
-    <div class="music-tooltip" id="musicTooltip">Нажмите, чтобы включить музыку</div>
+    <div class="music-tooltip" id="musicTooltip" data-i18n="musicTooltip">Нажмите, чтобы включить музыку</div>
     <button class="music-btn pulsing" id="musicToggle" aria-label="Включить музыку">
       <svg class="icon-play" viewBox="0 0 24 24">
         <path d="M8 5v14l11-7z"/>
@@ -625,13 +661,19 @@
       </g>
     </svg>
 
-    <p class="eyebrow reveal visible">Приглашение на свадьбу</p>
+    <p class="eyebrow reveal visible" data-i18n="invitationTitle">Приглашение на свадьбу</p>
     <h1 class="script">Карим<span class="amp">&amp;</span>Алия</h1>
 
     <div class="cal-wrap reveal reveal-delay-1">
-      <div class="cal-month">Июль 2026</div>
+      <div class="cal-month" data-i18n="calMonth">Июль 2026</div>
       <div class="cal-grid">
-        <div class="cal-head">Пн</div><div class="cal-head">Вт</div><div class="cal-head">Ср</div><div class="cal-head">Чт</div><div class="cal-head">Пт</div><div class="cal-head">Сб</div><div class="cal-head">Вс</div>
+        <div class="cal-head" data-i18n="d1">Пн</div>
+        <div class="cal-head" data-i18n="d2">Вт</div>
+        <div class="cal-head" data-i18n="d3">Ср</div>
+        <div class="cal-head" data-i18n="d4">Чт</div>
+        <div class="cal-head" data-i18n="d5">Пт</div>
+        <div class="cal-head" data-i18n="d6">Сб</div>
+        <div class="cal-head" data-i18n="d7">Вс</div>
         <div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day heart">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
       </div>
     </div>
@@ -642,8 +684,8 @@
   </svg>
 
   <section id="intro" style="background:var(--ivory-2); padding-top:10px; padding-bottom:10px;">
-    <p class="lede reveal">С огромной радостью приглашаем вас на самое яркое событие в нашей жизни – свадьбу!</p>
-    <p class="lede reveal reveal-delay-1">Мы будем счастливы отметить этот день в кругу родных и близких нам людей. С нетерпением ждем вас.</p>
+    <p class="lede reveal" data-i18n="introText1">С огромной радостью приглашаем вас на самое яркое событие в нашей жизни – свадьбу!</p>
+    <p class="lede reveal reveal-delay-1" data-i18n="introText2">Мы будем счастливы отметить этот день в кругу родных и близких нам людей. С нетерпением ждем вас.</p>
 
     <div class="rings-divider reveal reveal-delay-2">
       <span class="line"></span>
@@ -652,12 +694,12 @@
       <span class="line"></span>
     </div>
 
-    <p class="eyebrow reveal">До торжества осталось</p>
+    <p class="eyebrow reveal" data-i18n="countdownTitle">До торжества осталось</p>
     <div class="countdown reveal reveal-delay-1" id="countdown">
-      <div class="cd-item"><span class="num" id="cd-days">--</span><span class="lbl">дней</span></div>
-      <div class="cd-item"><span class="num" id="cd-hours">--</span><span class="lbl">часов</span></div>
-      <div class="cd-item"><span class="num" id="cd-min">--</span><span class="lbl">минут</span></div>
-      <div class="cd-item"><span class="num" id="cd-sec">--</span><span class="lbl">секунд</span></div>
+      <div class="cd-item"><span class="num" id="cd-days">--</span><span class="lbl" data-i18n="lblDays">дней</span></div>
+      <div class="cd-item"><span class="num" id="cd-hours">--</span><span class="lbl" data-i18n="lblHours">часов</span></div>
+      <div class="cd-item"><span class="num" id="cd-min">--</span><span class="lbl" data-i18n="lblMin">минут</span></div>
+      <div class="cd-item"><span class="num" id="cd-sec">--</span><span class="lbl" data-i18n="lblSec">секунд</span></div>
     </div>
   </section>
 
@@ -665,7 +707,8 @@
     <path d="M0,30 C 90,10 190,50 260,30 C 330,5 400,45 480,30 L480,0 L0,0 Z" fill="#F2EFE9"/>
   </svg>
 
-  <section id="photos" style="padding-top:10px; padding-bottom:15px;">
+  <!-- Сохраненные старые ссылки на фото -->
+<section id="photos" style="padding-top:10px; padding-bottom:15px;">
     <div class="gallery reveal reveal-delay-1">
       <div class="photo-frame photo-wide">
         <img src="https://avatars.mds.yandex.net/i?id=7780c42808c6bc40063fa129620153771cfc6f7b-5305635-images-thumbs&n=13" loading="lazy">
@@ -675,7 +718,7 @@
       </div>
       <div class="photo-frame">
         <img src="https://images.unsplash.com/photo-1549576351-2b0829ac81f8?auto=format&fit=crop&w=800&q=80" alt="Белые пионы" loading="lazy">
-      </div>
+      </div>  
     </div>
   </section>
 
@@ -684,14 +727,12 @@
   </svg>
 
   <section id="schedule" style="background:var(--ivory-2); padding-top:15px; padding-bottom:20px;">
-    <h2 class="script reveal">Программа дня</h2>
+    <h2 class="script reveal" data-i18n="scheduleTitle">Программа дня</h2>
     
     <div class="scroll-timeline-container" id="timelineContainer">
-      
       <div class="timeline-svg-wrapper">
         <svg viewBox="0 0 420 380" preserveAspectRatio="none">
           <path id="wavePath" class="main-wave-path" d="M210,15 Q235,60 210,105 T210,195 T210,285 T210,365" />
-          
           <g id="movingHeart">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" transform="translate(-12, -12) scale(1.1)" />
           </g>
@@ -701,27 +742,26 @@
       <div class="timeline-row-item" style="top: 15px;">
         <div class="time-left">15:00</div>
         <div class="spacer-center"></div>
-        <div class="desc-right">Сбор гостей</div>
+        <div class="desc-right" data-i18n="sch1">Сбор гостей</div>
       </div>
 
       <div class="timeline-row-item" style="top: 105px;">
         <div class="time-left">16:00</div>
         <div class="spacer-center"></div>
-        <div class="desc-right">Выездная церемония</div>
+        <div class="desc-right" data-i18n="sch2">Выездная церемония</div>
       </div>
 
       <div class="timeline-row-item" style="top: 195px;">
         <div class="time-left">17:00</div>
         <div class="spacer-center"></div>
-        <div class="desc-right">Начало торжества</div>
+        <div class="desc-right" data-i18n="sch3">Начало торжества</div>
       </div>
 
       <div class="timeline-row-item" style="top: 285px;">
         <div class="time-left">23:00</div>
         <div class="spacer-center"></div>
-        <div class="desc-right">Окончание вечера</div>
+        <div class="desc-right" data-i18n="sch4">Окончание вечера</div>
       </div>
-
     </div>
   </section>
 
@@ -730,11 +770,11 @@
   </svg>
 
   <section id="dress" style="padding-top:15px; padding-bottom:15px;">
-    <h2 class="script reveal">Дресс-код</h2>
-    <p class="lede reveal reveal-delay-1">Будем благодарны, если вы поддержите цветовую гамму нашего праздника.</p>
+    <h2 class="script reveal" data-i18n="dressTitle">Дресс-код</h2>
+    <p class="lede reveal reveal-delay-1" data-i18n="dressText">Будем благодарны, если вы поддержите цветовую гамму нашего праздника.</p>
     <div class="dress-cols reveal reveal-delay-2">
       <div class="dress-col">
-        <h3>Для дам</h3>
+        <h3 data-i18n="dressLadies">Для дам</h3>
         <div class="swatches">
           <div class="sw" style="background:#9FCDE8;"></div>
           <div class="sw" style="background:#1B2E52;"></div>
@@ -742,7 +782,7 @@
         </div>
       </div>
       <div class="dress-col">
-        <h3>Для кавалеров</h3>
+        <h3 data-i18n="dressGents">Для кавалеров</h3>
         <div class="swatches">
           <div class="sw" style="background:#14161A;"></div>
           <div class="sw" style="background:#22355C;"></div>
@@ -757,21 +797,21 @@
   </svg>
 
   <section id="venue" class="photo-section" style="--bg-photo:url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1200&q=60'); padding-top:15px; padding-bottom:20px;">
-    <h2 class="script reveal">Место проведения</h2>
+    <h2 class="script reveal" data-i18n="venueTitle">Место проведения</h2>
     <div class="venue-card reveal reveal-delay-1">
-      <div class="vname">Ресторан “Aurora”</div>
-      <div class="venue-addr">г. Бишкек, ул. Ибраимова, 2/2</div>
-      <a class="map-link" href="https://2gis.kg/bishkek/search/Ибраимов%202/2" target="_blank" rel="noopener">Открыть карту 2GIS</a>
+      <div class="vname" data-i18n="venueName">Ресторан “Aurora”</div>
+      <div class="venue-addr" data-i18n="venueAddr">г. Бишкек, ул. Ибраимова, 2/2</div>
+      <a class="map-link" href="https://2gis.kg/bishkek/search/Ибраимов%202/2" target="_blank" rel="noopener" data-i18n="mapBtn">Открыть карту 2GIS</a>
     </div>
   </section>
 
   <svg class="silk" viewBox="0 0 480 60" preserveAspectRatio="none">
-    <path d="M0,30 C 100,5 180,55 240,30 C 300,5 380,55 480,25 L480,60 L0,60 Z" fill="#FAF8F5"/>
+    <path d="M0,30 C 100,5 180,55 240,30 C 300,5 380,55 480,25 L480,0 L0,0 Z" fill="#FAF8F5"/>
   </svg>
 
   <section id="telegram" style="padding-top:10px; padding-bottom:15px; text-align:center;">
-    <h2 class="script reveal">Telegram группа</h2>
-    <p class="lede reveal reveal-delay-1">Вы сможете отправлять и смотреть все фото и видео с нашего торжества в Telegram-канале по ссылке ниже.</p>
+    <h2 class="script reveal" data-i18n="tgTitle">Telegram группа</h2>
+    <p class="lede reveal reveal-delay-1" data-i18n="tgText">Вы сможете отправлять и смотреть все фото и видео с нашего торжества в Telegram-канале по ссылке ниже.</p>
     <a class="tg-circle reveal reveal-delay-2" href="https://t.me/+zjT9PHBOqO1jYmJi" target="_blank" rel="noopener" aria-label="Telegram">
       <svg viewBox="0 0 24 24" fill="none" stroke="#3E5C86" stroke-width="1.6"><path d="M22 3 3 10.5l6 2.2M22 3 15.8 21l-5-8.4M22 3 8.4 12.6"/></svg>
     </a>
@@ -781,51 +821,136 @@
     <path d="M0,30 C 90,10 190,50 260,30 C 330,5 400,45 480,30 L480,0 L0,0 Z" fill="#F2EFE9"/>
   </svg>
 
+  <!-- Анкета гостя (без выбора количества и с отправкой в Telegram) -->
   <section id="rsvp" style="background:var(--ivory-2); padding-top:15px; padding-bottom:20px;">
-    <h2 class="script reveal">Анкета гостя</h2>
-    <p class="lede reveal reveal-delay-1">Пожалуйста, подтвердите ваше присутствие, чтобы мы могли лучше подготовиться к встрече.</p>
+    <h2 class="script reveal" data-i18n="formTitle">Анкета гостя</h2>
+    <p class="lede reveal reveal-delay-1" data-i18n="formSubtitle">Пожалуйста, подтвердите ваше присутствие, чтобы мы могли лучше подготовиться к встрече.</p>
 
     <div class="form-wrap reveal reveal-delay-2">
       <form id="rsvpForm">
-        <label class="field-label">Ваше имя и фамилия</label>
-        <input type="text" id="guestName" placeholder="Введите ваше имя" required>
+        <label class="field-label" data-i18n="lblInputName">Ваше имя и фамилия</label>
+        <input type="text" id="guestName" placeholder="Введите ваше имя" data-i18n-ph="phName" required>
 
-        <label class="field-label">Смонете ли вы прийти?</label>
+        <label class="field-label" data-i18n="lblAttend">Сможете ли вы прийти?</label>
         <div class="radio-group">
           <label class="radio-row">
             <input type="radio" name="attend" value="Да, с удовольствием" checked> 
-            <span>Да, с удовольствием</span>
+            <span data-i18n="optYes">Да, с удовольствием</span>
           </label>
           <label class="radio-row">
             <input type="radio" name="attend" value="К сожалению, не смогу"> 
-            <span>К сожалению, не смогу</span>
+            <span data-i18n="optNo">К сожалению, не смогу</span>
           </label>
         </div>
 
-        <div id="countBlock">
-          <label class="field-label">Количество гостей</label>
-          <select id="guestCount">
-            <option>1 человек</option>
-            <option>2 человека</option>
-            <option>3 человека</option>
-            <option>4 человека</option>
-          </select>
-        </div>
-
-        <button type="submit" class="submit-btn">отправить в whatsapp</button>
+        <button type="submit" class="submit-btn" data-i18n="btnSubmit">отправить в telegram</button>
       </form>
-      <p class="thanks" id="thanksMsg">Спасибо! Открываем WhatsApp для отправки... 🤍</p>
+      <p class="thanks" id="thanksMsg" data-i18n="thanksText">Спасибо! Открываем Telegram для отправки... 🤍</p>
     </div>
   </section>
 
   <footer>
-    <div class="footer-line reveal">С уважением и любовью</div>
+    <div class="footer-line reveal" data-i18n="footerText">С уважением и любовью</div>
     <div class="script reveal reveal-delay-1">Карим &amp; Алия</div>
   </footer>
 
 </div>
 
 <script>
+  // ---------- ДВУЯЗЫЧНОСТЬ (i18n) ----------
+  const translations = {
+    ru: {
+      invitationTitle: "Приглашение на свадьбу",
+      calMonth: "Июль 2026",
+      d1: "Пн", d2: "Вт", d3: "Ср", d4: "Чт", d5: "Пт", d6: "Сб", d7: "Вс",
+      introText1: "С огромной радостью приглашаем вас на самое яркое событие в нашей жизни – свадьбу!",
+      introText2: "Мы будем счастливы отметить этот день в кругу родных и близких нам людей. С нетерпением ждем вас.",
+      countdownTitle: "До торжества осталось",
+      lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд",
+      scheduleTitle: "Программа дня",
+      sch1: "Сбор гостей", sch2: "Выездная церемония", sch3: "Начало торжества", sch4: "Окончание вечера",
+      dressTitle: "Дресс-код",
+      dressText: "Будем благодарны, если вы поддержите цветовую гамму нашего праздника.",
+      dressLadies: "Для дам", dressGents: "Для кавалеров",
+      venueTitle: "Место проведения",
+      venueName: "Ресторан “Aurora”",
+      venueAddr: "г. Бишкек, ул. Ибраимова, 2/2",
+      mapBtn: "Открыть карту 2GIS",
+      tgTitle: "Telegram группа",
+      tgText: "Вы сможете отправлять и смотреть все фото и видео с нашего торжества в Telegram-канале по ссылке ниже.",
+      formTitle: "Анкета гостя",
+      formSubtitle: "Пожалуйста, подтвердите ваше присутствие, чтобы мы могли лучше подготовиться к встрече.",
+      lblInputName: "Ваше имя и фамилия",
+      phName: "Введите ваше имя",
+      lblAttend: "Сможете ли вы прийти?",
+      optYes: "Да, с удовольствием",
+      optNo: "К сожалению, не смогу",
+      btnSubmit: "отправить в telegram",
+      thanksText: "Спасибо! Открываем Telegram для отправки... 🤍",
+      footerText: "С уважением и любовью",
+      musicTooltip: "Нажмите, чтобы включить музыку"
+    },
+    kg: {
+      invitationTitle: "Үйлөнүү үлпөтүнө чакыруу",
+      calMonth: "Июль 2026",
+      d1: "Дүй", d2: "Шей", d3: "Шар", d4: "Бей", d5: "Жум", d6: "Ишем", d7: "Жек",
+      introText1: "Сиздерди жашообуздагы эң кубанычтуу күнүбүзгө — үйлөнүү үлпөт тоюбузга чакырабыз!",
+      introText2: "Бул бактылуу күнүбүздү сиздер менен бирге бөлүшүүгө кубанычтабыз. Сиздерди чыдамсыздык менен күтөбүз.",
+      countdownTitle: "Тойго чейин калды",
+      lblDays: "күн", lblHours: "саат", lblMin: "мүнөт", lblSec: "секунд",
+      scheduleTitle: "Программа",
+      sch1: "Коноктордун чогулуусу", sch2: "Салтанаттуу азем", sch3: "Тойдун башталышы", sch4: "Тойдун аякташы",
+      dressTitle: "Дресс-код",
+      dressText: "Майрамыбыздын түстүк гаммасын колдоп келсеңиздер, абдан ыраазы болобуз.",
+      dressLadies: "Айымдар үчүн", dressGents: "Мырзалар үчүн",
+      venueTitle: "Өткөрүлүүчү орду",
+      venueName: "Ресторан “Aurora”",
+      venueAddr: "Бишкек ш., Ибраимов көч., 2/2",
+      mapBtn: "2GIS картасын ачуу",
+      tgTitle: "Telegram тайпасы",
+      tgText: "Биздин майрамдагы бардык сүрөт, видеолорду төмөнкү шилтеме аркылуу Telegram-каналдан көрө аласыз.",
+      formTitle: "Коноктун анкетасы",
+      formSubtitle: "Тойго келе аларыңызды алдын ала ырастап коюуңузду суранабыз.",
+      lblInputName: "Аты-жөнүңүз",
+      phName: "Атыңызды жазыңыз",
+      lblAttend: "Келе аласызбы?",
+      optYes: "Ооба, кубаныч менен баратам",
+      optNo: "Тилекке каршы, бара албайм",
+      btnSubmit: "telegram аркылуу жөнөтүү",
+      thanksText: "Рахмат! Жөнөтүү үчүн Telegram ачылууда... 🤍",
+      footerText: "Урматоо жана сүйүү менен",
+      musicTooltip: "Музыканы күйгүзүү үчүн басыңыз"
+    }
+  };
+
+  let currentLang = 'ru';
+
+  function toggleLanguage() {
+    currentLang = currentLang === 'ru' ? 'kg' : 'ru';
+    
+    if (currentLang === 'kg') {
+      document.getElementById('langRU').classList.remove('active-lang');
+      document.getElementById('langKG').classList.add('active-lang');
+    } else {
+      document.getElementById('langKG').classList.remove('active-lang');
+      document.getElementById('langRU').classList.add('active-lang');
+    }
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[currentLang][key]) {
+        el.textContent = translations[currentLang][key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const key = el.getAttribute('data-i18n-ph');
+      if (translations[currentLang][key]) {
+        el.placeholder = translations[currentLang][key];
+      }
+    });
+  }
+
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
@@ -852,44 +977,31 @@
   tick();
   setInterval(tick, 1000);
 
-  // Скрытие количества гостей
-  const radioInputs = document.querySelectorAll('input[name="attend"]');
-  const countBlock = document.getElementById('countBlock');
-  radioInputs.forEach(input => {
-    input.addEventListener('change', function() {
-      if (this.value === 'К сожалению, не смогу') {
-        countBlock.style.display = 'none';
-      } else {
-        countBlock.style.display = 'block';
-      }
-    });
-  });
-
-  // Отправка формы в WhatsApp
+  // Отправка формы в Telegram @Jayson_Stethem01
   document.getElementById('rsvpForm').addEventListener('submit', function(e){
     e.preventDefault();
     const name = document.getElementById('guestName').value;
-    const attendance = document.querySelector('input[name="attend"]:checked').value;
-    const count = document.getElementById('guestCount').value;
+    const attendanceRadio = document.querySelector('input[name="attend"]:checked');
+    const attendance = attendanceRadio.parentElement.innerText.trim();
     
-    let message = `Здравствуйте! Ответ на приглашение от Карима и Алии:\n\n`;
-    message += `👤 Имя: ${name}\n`;
-    message += `💌 Решение: ${attendance}`;
+    let message = currentLang === 'ru' 
+      ? `Здравствуйте! Ответ на приглашение от Карима и Алии:\n\n`
+      : `Саламатсызбы! Карим менен Алиянын чакыруусуна жооп:\n\n`;
+
+    message += currentLang === 'ru' ? `👤 Имя: ${name}\n` : `👤 Аты-жөнү: ${name}\n`;
+    message += currentLang === 'ru' ? `💌 Решение: ${attendance}` : `💌 Чечим: ${attendance}`;
     
-    if (attendance === 'Да, с удовольствием') {
-      message += `\n👥 Количество: ${count}`;
-    }
+    const telegramUsername = 'Jayson_Stethem01';
+    const telegramUrl = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`;
     
-    const phone = '996559150809';
-    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     document.getElementById('thanksMsg').classList.add('show');
     
     setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
+      window.open(telegramUrl, '_blank');
     }, 1000);
   });
 
-  // ЛОГИКА СКОЛЬЖЕНИЯ СЕРДЦА ПО ЛИНИИ ПРИ СКРОЛЛЕ
+  // ЛОГИКА СКОЛЬЖЕНИЯ СЕРДЦА ПО ЛИНИИ
   const wavePath = document.getElementById('wavePath');
   const movingHeart = document.getElementById('movingHeart');
   const scheduleSection = document.getElementById('schedule');
@@ -897,8 +1009,6 @@
 
   function animateHeartOnScroll() {
     const rect = scheduleSection.getBoundingClientRect();
-    const viewHeight = window.innerHeight;
-
     let scrollPercent = (window.innerHeight - rect.top) / (rect.height + window.innerHeight);
     if (scrollPercent < 0) scrollPercent = 0;
     if (scrollPercent > 1) scrollPercent = 1;
@@ -913,7 +1023,7 @@
   window.addEventListener('resize', animateHeartOnScroll);
   setTimeout(animateHeartOnScroll, 100);
 
-  // ЛОГИКА РАБОТЫ МУЗЫКАЛЬНОГО ПЛЕЕРА И АВТООСТАНОВКИ
+  // ЛОГИКА РАБОТЫ МУЗЫКАЛЬНОГО ПЛЕЕРА
   const bgMusic = document.getElementById('bgMusic');
   const musicContainer = document.getElementById('musicContainer');
   const musicToggle = document.getElementById('musicToggle');
